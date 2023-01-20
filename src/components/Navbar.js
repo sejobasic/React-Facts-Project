@@ -1,13 +1,18 @@
 import '../App.css'
 import reactIcon from '../assets/reacticon.png'
-import menu from '../assets/menu.png'
 
-function Navbar() {
+function Navbar(props) {
   return (
-    <nav>
+    <nav className={props.darkMode ? 'dark' : ''}>
       <img className='nav-logo' src={reactIcon} alt='react icon' />
       <h3>ReactFacts</h3>
-      <img className='nav-menu' src={menu} alt='menu icon' />
+      <div className='toggle-wrapper'>
+        <p className='toggle-light'>Light</p>
+        <div className='toggle-slider' onClick={props.toggleDarkMode}>
+          <div className='toggle-circle'></div>
+        </div>
+        <p className='toggle-dark'>Dark</p>
+      </div>
     </nav>
   )
 }
